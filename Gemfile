@@ -5,6 +5,7 @@ ruby '2.7.3'
 
 gem 'activeadmin'
 gem 'babosa', require: false
+gem 'carrierwave', '~> 2.0'
 
 gem 'pg', '1.3.5'
 gem 'puma', '~> 3.11'
@@ -14,7 +15,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug'
   gem 'rspec-rails', require: false
 end
 
