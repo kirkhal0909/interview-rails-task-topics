@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.3'
 
 gem 'activeadmin'
+gem 'babosa', require: false
 
 gem 'pg', '1.3.5'
 gem 'puma', '~> 3.11'
