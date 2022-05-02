@@ -3,6 +3,8 @@ class Tag < ApplicationRecord
 
   before_save :slug_by_name
 
+  private
+
   def slug_by_name
     self.slug = SlugGenerator.call(name)
   end

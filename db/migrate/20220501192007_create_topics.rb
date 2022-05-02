@@ -21,5 +21,7 @@ class CreateTopics < ActiveRecord::Migration[5.2]
       t.references :tag, null: false
       t.index [:topic_id, :tag_id], unique: true
     end
+
+    execute "Select nextval('topics_id_seq')" # init sequencer (postgresql). It need for slug in topics before save
   end
 end
