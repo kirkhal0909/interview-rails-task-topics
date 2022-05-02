@@ -8,6 +8,7 @@ class Topic < ApplicationRecord
                                  message: 'должен начинаться с символа "/"; например: /path/to/topic'
 
   before_save :generate_slug
+  before_save :set_published_at
 
   def self.next_sequence_id
     connection.select_value('SELECT last_value FROM topics_id_seq') + 1 # for Oracle can use Topic.next_sequence_value
@@ -17,5 +18,9 @@ class Topic < ApplicationRecord
 
   def generate_slug
     self.slug = SlugGenerator.call("#{id || Topic.next_sequence_id} #{title}")
+  end
+
+  def set_published_at
+    self.published_at ||= Time.now if published
   end
 end

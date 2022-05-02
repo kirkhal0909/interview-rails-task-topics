@@ -6,10 +6,12 @@ ActiveAdmin.register Topic do
     inputs do
       f.input :title
       f.input :url_path
-      f.input :image, :as => :file, :hint => image_tag(f.object.image.url) 
+      f.input :image,
+              as: :file,
+              hint: f.object.image.present? ? image_tag(f.object.image.url) : content_tag(:span, 'Загрузите картинку')
       f.input :announce
       f.input :text
-      f.input :published
+      f.input :published, input_html: { disabled: f.object.published }
     end
 
     inputs do
