@@ -16,11 +16,20 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   gem 'byebug'
-  gem 'rspec-rails', require: false
 end
 
 group :development do
   gem 'spring', '3.1.1'
+
+  #     local CLI
+  #
+  # gem 'rubocop', require: false   # linter:   rubocop
+  # gem 'bumbler', require: false   # check initialize time:   bumbler --initializers; bumbler --all
+end
+
+group :test do
+  gem 'factory_bot', require: false
+  gem 'rspec-rails', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
