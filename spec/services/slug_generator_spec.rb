@@ -20,12 +20,12 @@ RSpec.describe SlugGenerator, type: :service do
 
       it 'support cyrillic symbols' do
         string = 'строка, в которой есть символы кириллицы'
-        expect(described_class.call(string)).to eq('строка-в-которой-есть-символы-кириллицы')
+        expect(described_class.call(string)).to eq('stroka-v-kotoroi-est-simvoly-kirillitsy')
       end
 
       it 'apply lowercase' do
         string = 'СтРоКа с UpPeRCaSe AnD LoWeRcAsE'
-        expect(described_class.call(string)).to eq('строка-с-uppercase-and-lowercase')
+        expect(described_class.call(string)).to eq('stroka-s-uppercase-and-lowercase')
       end
     end
   end

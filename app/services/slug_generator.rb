@@ -8,6 +8,6 @@ class SlugGenerator < ApplicationService
   end
 
   def call
-    @string.to_slug.normalize(transliterations: :russian).to_s
+    @string.to_slug.transliterate(:russian).normalize.to_s
   end
 end
