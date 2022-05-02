@@ -1,4 +1,6 @@
 class Tag < ApplicationRecord
+  has_and_belongs_to_many :topics
+
   before_save :slug_by_name
 
   def slug_by_name
