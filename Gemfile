@@ -7,6 +7,9 @@ gem 'activeadmin'
 gem 'babosa', require: false
 gem 'carrierwave', '~> 2.0'
 
+gem 'bootstrap', '5.0.0'
+gem 'kaminari'
+
 gem 'pg', '1.3.5'
 gem 'puma', '~> 3.11'
 gem 'rails', '5.2.7.1'

@@ -1,0 +1,13 @@
+<div class="container">
+  <center>
+    <% @topics.each do |topic| %>
+      <br>
+      <a href="<%= topic_path(topic, url_path: topic.url_path) %>" class="link-primary">
+          <%= image_tag topic.image_url, width: '300px' %>
+          <p><%= topic.title %></p>
+      </a>
+      <hr>
+    <% end %>
+  </center>
+  <%= paginate @topics %>
+</div>

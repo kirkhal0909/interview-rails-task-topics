@@ -16,7 +16,7 @@ tag_names = [
 tag_names.each { |tag_name| Tag.create(name: tag_name) }
 tag_ids = Tag.ids
 
-title = Faker::Movies::StarWars.method(:wookiee_sentence)
+title = Faker::Movies::StarWars.method(:quote)
 images = ['public/seeds/img1.jpg', 'public/seeds/img2.jpg', 'public/seeds/img3.jpg', 'public/seeds/img4.jpg',
           'public/seeds/img5.jpg', 'public/seeds/img6.jpg', 'public/seeds/img7.jpg']
 # topic.image = File.open(image_path)

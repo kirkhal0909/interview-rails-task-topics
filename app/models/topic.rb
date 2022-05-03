@@ -2,6 +2,8 @@ class Topic < ApplicationRecord
   mount_uploader :image, TopicImageUploader
   has_and_belongs_to_many :tags
 
+  paginates_per 10
+
   validates :title, presence: true
   validates :text, presence: true
   validates_format_of :url_path, with: /[^\/][a-zA-Z\/\-_0-9]+[^\/]\z/,

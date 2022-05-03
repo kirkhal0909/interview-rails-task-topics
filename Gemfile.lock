@@ -57,9 +57,15 @@ GEM
       activesupport (>= 3.0.0, < 7.1)
       ruby2_keywords (>= 0.0.2, < 1.0)
     arel (9.0.0)
+    autoprefixer-rails (10.4.2.0)
+      execjs (~> 2)
     babosa (2.0.0)
     bootsnap (1.11.1)
       msgpack (~> 1.2)
+    bootstrap (5.0.0)
+      autoprefixer-rails (>= 9.1.0)
+      popper_js (>= 2.9.2, < 3)
+      sassc-rails (>= 2.0.0)
     builder (3.2.4)
     byebug (11.1.3)
     carrierwave (2.2.2)
@@ -74,6 +80,7 @@ GEM
     crass (1.0.6)
     diff-lcs (1.5.0)
     erubi (1.10.0)
+    execjs (2.8.1)
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
     faker (2.20.0)
@@ -132,6 +139,7 @@ GEM
     nokogiri (1.13.4-x86_64-linux)
       racc (~> 1.4)
     pg (1.3.5)
+    popper_js (2.9.3)
     public_suffix (4.0.7)
     puma (3.12.6)
     racc (1.6.0)
@@ -204,6 +212,14 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    sassc (2.4.0)
+      ffi (~> 1.9)
+    sassc-rails (2.1.2)
+      railties (>= 4.0.0)
+      sassc (>= 2.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
     spring (3.1.1)
     sprockets (3.7.2)
       concurrent-ruby (~> 1.0)
@@ -230,10 +246,12 @@ DEPENDENCIES
   activeadmin
   babosa
   bootsnap (>= 1.1.0)
+  bootstrap (= 5.0.0)
   byebug
   carrierwave (~> 2.0)
   factory_bot
   faker
+  kaminari
   pg (= 1.3.5)
   puma (~> 3.11)
   rails (= 5.2.7.1)
