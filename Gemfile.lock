@@ -76,6 +76,8 @@ GEM
     erubi (1.10.0)
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
+    faker (2.20.0)
+      i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
     formtastic (4.0.0)
       actionpack (>= 5.2.0)
@@ -231,6 +233,7 @@ DEPENDENCIES
   byebug
   carrierwave (~> 2.0)
   factory_bot
+  faker
   pg (= 1.3.5)
   puma (~> 3.11)
   rails (= 5.2.7.1)
