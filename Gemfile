@@ -24,7 +24,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   gem 'byebug'
   gem 'faker', require: false
-  gem 'rspec-rails'
   gem 'rswag-specs'
 end
 

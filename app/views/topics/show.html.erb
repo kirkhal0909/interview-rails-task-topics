@@ -1,8 +1,8 @@
 <div class="container">
 <center>
   <div class='col-md-6'>
-    <!-- Demo button -->
-    <a href="<%= admin_root_path %>" class="btn btn-secondary m-5">Admin</a>
+    <%= render(partial: 'demo/buttons') %>
+
     <br>
     <h1>
       <%= image_tag @topic.image_url %>

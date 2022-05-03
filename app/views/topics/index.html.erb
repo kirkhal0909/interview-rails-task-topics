@@ -11,8 +11,7 @@
 
 <div class="container">
   <center>
-    <!-- Demo buttons -->
-    <a href="<%= admin_root_path %>" class="btn btn-secondary m-3">Admin</a>
+    <%= render(partial: 'demo/buttons') %>
 
     <div class="card card-body bg-light">
       <%= form_for_filterrific @filterrific do |f| %>
