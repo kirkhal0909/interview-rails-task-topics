@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.3'
 
 gem 'activeadmin'
+gem 'active_model_serializers'
 gem 'babosa', require: false
 gem 'carrierwave', '~> 2.0'
 
