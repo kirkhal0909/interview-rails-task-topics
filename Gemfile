@@ -7,7 +7,8 @@ gem 'activeadmin'
 gem 'active_model_serializers'
 gem 'babosa', require: false
 gem 'carrierwave', '~> 2.0'
-gem 'rswag'
+gem 'rswag-api'
+gem 'rswag-ui'
 
 gem 'bootstrap', '5.0.0'
 gem 'filterrific'
@@ -23,6 +24,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   gem 'byebug'
   gem 'faker', require: false
+  gem 'rspec-rails'
+  gem 'rswag-specs'
 end
 
 group :development do
