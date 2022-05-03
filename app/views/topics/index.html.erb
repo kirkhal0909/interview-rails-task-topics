@@ -1,13 +1,32 @@
+<style>
+
+  a {
+    text-decoration: none; /* remove underline */
+    color: inherit; /* remove blue */
+  }
+  a:hover, a:focus, a:active {
+      color: blue;
+ }
+</style>
+
 <div class="container">
   <center>
-    <% @topics.each do |topic| %>
-      <br>
-      <a href="<%= topic_path(topic, url_path: topic.url_path) %>" class="link-primary">
-          <%= image_tag topic.image_url, width: '300px' %>
-          <p><%= topic.title %></p>
-      </a>
-      <hr>
+    <br>
+    <% @topics.in_groups_of(4, false) do |topics_group| %>
+      <div class="row">
+      <% topics_group.each do |topic| %>
+        <div class="bg-white border rounded-3 col-md-3 m-0">
+          <br>
+          <a href="<%= topic_path(topic, url_path: topic.url_path) %>">
+              <%= image_tag topic.image_url, width: '300px' %>
+              <p class="col-md-6"><%= topic.title %></p>
+          </a>
+        </div>
+        <br>
+      <% end %>
+      </div>
     <% end %>
   </center>
+  <br>
   <%= paginate @topics %>
 </div>

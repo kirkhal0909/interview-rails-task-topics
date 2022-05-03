@@ -2,7 +2,7 @@ class Topic < ApplicationRecord
   mount_uploader :image, TopicImageUploader
   has_and_belongs_to_many :tags
 
-  paginates_per 10
+  paginates_per 20
 
   validates :title, presence: true
   validates :text, presence: true
