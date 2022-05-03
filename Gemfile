@@ -21,9 +21,9 @@ gem 'sass-rails', '~> 5.0'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 
+gem 'faker' # move to all groups for Heroku db:seed
 group :development, :test do
   gem 'byebug'
-  gem 'faker', require: false
   gem 'rswag-specs'
 end
 

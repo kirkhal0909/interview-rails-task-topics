@@ -6,8 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-require 'faker'
-
 tag_names = [
   'Информационные технологии', 'Информационная безопасность', 'Маркетинг',
   'Финансы', 'Философия', 'Психология', 'Спорт', 'Отношения', 'Музыка'
