@@ -3,6 +3,8 @@ class Topic < ApplicationRecord
   has_and_belongs_to_many :tags
 
   scope :only_published, -> { where(published: true) }
+  scope :search_query, ->(query) { where('title LIKE ?', "%#{query}%") }
+  scope :with_tag_id, ->(tag_id) { Topic.joins(:tags).where(tags: { id: tag_id }) }
 
   paginates_per 20
 

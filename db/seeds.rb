@@ -28,9 +28,9 @@ text = Faker::Movies::StarWars.method(:quote)
 published = [false, true]
 published_at = Time.now
 
-100.times do |i|
+300.times do |i|
   topic_tag_ids = []
-  (0..tag_names.count).to_a.sample.times { topic_tag_ids << (tag_ids - topic_tag_ids).sample }
+  (0..4).to_a.sample.times { topic_tag_ids << (tag_ids - topic_tag_ids).sample }
   Topic.create(
     title: title.call,
     image: File.open(images.sample),
