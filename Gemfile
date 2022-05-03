@@ -8,6 +8,7 @@ gem 'babosa', require: false
 gem 'carrierwave', '~> 2.0'
 
 gem 'bootstrap', '5.0.0'
+gem 'filterrific'
 gem 'kaminari'
 
 gem 'pg', '1.3.5'

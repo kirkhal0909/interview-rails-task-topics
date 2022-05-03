@@ -3,6 +3,10 @@ class Tag < ApplicationRecord
 
   before_save :slug_by_name
 
+  def self.options_for_select
+    order('name').map { |tag| [tag.name, tag.id] }
+  end
+
   def to_param
     slug
   end

@@ -1,10 +1,18 @@
 class TopicsController < ApplicationController
   def index
-    sort_column = params[:sort_column] if params[:sort_order].in?(%w[id published_at title])
-    sort_order = params[:sort_order] if params[:sort_order].in?(%w[asc desc])
-    @topics = Topic.order(sort_column || :id => sort_order || :asc)
-                   .only_published
-                   .page(params[:page])
+    @filterrific = initialize_filterrific(
+      Topic,
+      params[:filterrific],
+      select_options: {
+        sorted_by: Topic.options_for_sorted_by,
+        with_tag_id: Tag.options_for_select,
+      },
+      persistence_id: 'shared_key',
+      default_filter_params: {},
+      available_filters: [:sorted_by, :with_tag_id],
+      sanitize_params: true
+    ) || return
+    @topics = @filterrific.find.page(params[:page])
   end
 
   def show

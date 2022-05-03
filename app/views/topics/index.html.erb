@@ -13,21 +13,40 @@
   <center>
     <!-- Demo buttons -->
     <a href="<%= admin_root_path %>" class="btn btn-secondary m-5">Admin</a>
-    <% @topics.in_groups_of(4, false) do |topics_group| %>
-      <div class="row">
-      <% topics_group.each do |topic| %>
-        <div class="bg-white border rounded-3 col-md-3 m-0">
-          <br>
-          <a href="<%= topic_path(topic, url_path: topic.url_path) %>">
-              <%= image_tag topic.image_url, width: '75%', class: 'img-responsive' %>
-              <p class="col-md-6"><%= topic.title %></p>
-          </a>
-        </div>
-        <br>
-      <% end %>
+
+    <%= form_for_filterrific @filterrific do |f| %>
+      <div>
+        Search
+        <%= f.text_field(
+          :search_query,
+          class: 'filterrific-periodically-observed'
+        ) %>
       </div>
+      <div>
+        Tag
+        <%= f.select(
+          :with_tag_id,
+          @filterrific.select_options[:with_tag_id],
+          { include_blank: '- Any -' }
+        ) %>
+      </div>
+      <div>
+        Sorted by
+        <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
+      </div>
+      <div>
+        <%= link_to(
+          'Reset filters',
+          reset_filterrific_url,
+        ) %>
+      </div>
+      <%= render_filterrific_spinner %>
     <% end %>
+
+    <%= render(
+      partial: 'topics/list',
+      locals: { topics: @topics }
+    ) %>
   </center>
-  <br>
-  <%= paginate @topics %>
+  
 </div>

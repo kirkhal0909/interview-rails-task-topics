@@ -2,9 +2,30 @@ class Topic < ApplicationRecord
   mount_uploader :image, TopicImageUploader
   has_and_belongs_to_many :tags
 
+  filterrific(
+    default_filter_params: { sorted_by: 'id_asc' },
+    available_filters: [
+      :sorted_by,
+      :search_query,
+      :with_tag_id
+    ]
+  )
   scope :only_published, -> { where(published: true) }
-  scope :search_query, ->(query) { where('title LIKE ?', "%#{query}%") }
-  scope :with_tag_id, ->(tag_id) { Topic.joins(:tags).where(tags: { id: tag_id }) }
+  scope :search_query, ->(query) { only_published.where('title LIKE ?', "%#{query}%") }
+  scope :with_tag_id, ->(tag_id) { Topic.only_published.joins(:tags).where(tags: { id: tag_id }) }
+  scope :sorted_by, ->(sort_option) {
+    direction = /desc$/.match?(sort_option) ? :desc : :asc
+    case sort_option.to_s
+    when /^id_/
+      only_published.order(id: direction)
+    when /^published_at_/
+      only_published.order(published_at: direction)
+    when /^title_/
+      only_published.order(title: direction)
+    else
+      raise(ArgumentError, "Invalid sort option: #{sort_option.inspect}")
+    end
+  }
 
   paginates_per 20
 
@@ -15,6 +36,17 @@ class Topic < ApplicationRecord
 
   before_save :generate_slug
   before_save :set_published_at
+
+  def self.options_for_sorted_by
+    [
+      ['id asc', 'id_asc'],
+      ['id desc', 'id_desc'],
+      ['published_at asc', 'published_at_asc'],
+      ['published_at desc', 'published_at_desc'],
+      ['title asc', 'title_asc'],
+      ['title desc', 'title_desc']
+    ]
+  end
 
   def self.next_sequence_id
     connection.select_value('SELECT last_value FROM topics_id_seq') + 1 # for Oracle can use Topic.next_sequence_value
