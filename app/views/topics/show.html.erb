@@ -1,5 +1,22 @@
+<div class="container">
 <center>
-  <h1>
-    <%= @topic&.title %>
-  </h1>
+  <div class='col-md-6'>
+    <!-- Demo button -->
+    <a href="<%= admin_root_path %>" class="btn btn-secondary m-5">Admin</a>
+    <br>
+    <h1>
+      <%= image_tag @topic.image_url %>
+      <p><%= @topic&.title %></p>
+    </h1>
+    <b><%= @topic&.announce %></b>
+    <p><%= @topic&.text %></p>
+    <p>Опубликовано: <%= @topic&.published_at %></p>
+    <p>
+      Тэги:
+      <% @tags.each do |tag| %>
+        <a href="<%= tag_path(tag) %>"><%= tag.name %></a>;
+      <% end %>
+    </p>
+  </div>
 </center>
+</div>
