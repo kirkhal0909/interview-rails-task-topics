@@ -7,6 +7,7 @@ gem 'activeadmin'
 gem 'active_model_serializers'
 gem 'babosa', require: false
 gem 'carrierwave', '~> 2.0'
+gem 'rswag'
 
 gem 'bootstrap', '5.0.0'
 gem 'filterrific'
