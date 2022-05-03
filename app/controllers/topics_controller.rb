@@ -9,10 +9,15 @@ class TopicsController < ApplicationController
       },
       persistence_id: 'shared_key',
       default_filter_params: {},
-      available_filters: [:sorted_by, :with_tag_id],
+      available_filters: [:search_query, :sorted_by, :with_tag_id],
       sanitize_params: true
     ) || return
     @topics = @filterrific.find.page(params[:page])
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show

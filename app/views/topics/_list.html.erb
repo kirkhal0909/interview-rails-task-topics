@@ -4,7 +4,7 @@
     <% topics_group.each do |topic| %>
       <div class="bg-white border rounded-3 col-md-3 m-0">
         <br>
-        <a href="<%= topic_path(topic, url_path: topic.url_path) %>">
+        <a class="topic-link" href="<%= topic_path(topic, url_path: topic.url_path) %>">
             <%= image_tag topic.image_url, width: '75%', class: 'img-responsive' %>
             <p class="col-md-6"><%= topic.title %></p>
         </a>
