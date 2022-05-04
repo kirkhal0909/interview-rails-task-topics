@@ -8,7 +8,7 @@ ActiveAdmin.register Topic do
       f.input :url_path
       f.input :image,
               as: :file,
-              hint: f.object.image.present? ? image_tag(f.object.image.url) : content_tag(:span, 'Загрузите картинку')
+              hint: f.object.image_url.present? ? image_tag(f.object.image_url) : content_tag(:span, 'Загрузите картинку')
       f.input :announce
       f.input :text
       f.input :published, input_html: { disabled: f.object.published }
