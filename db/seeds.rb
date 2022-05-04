@@ -15,8 +15,8 @@ tag_names.each { |tag_name| Tag.create(name: tag_name) }
 tag_ids = Tag.ids
 
 title = Faker::Movies::StarWars.method(:quote)
-images = ['public/seeds/img1.jpg', 'public/seeds/img2.jpg', 'public/seeds/img3.jpg', 'public/seeds/img4.jpg',
-          'public/seeds/img5.jpg', 'public/seeds/img6.jpg', 'public/seeds/img7.jpg']
+images = ['app/assets/images/seeds/img1.jpg', 'app/assets/images/seeds/img2.jpg', 'app/assets/images/seeds/img3.jpg', 'app/assets/images/seeds/img4.jpg',
+          'app/assets/images/seeds/img5.jpg', 'app/assets/images/seeds/img6.jpg', 'app/assets/images/seeds/img7.jpg']
 # topic.image = File.open(image_path)
 # topic.save
 

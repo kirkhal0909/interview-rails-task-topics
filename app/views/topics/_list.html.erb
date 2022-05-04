@@ -5,7 +5,7 @@
       <div class="bg-white border rounded-3 col-md-3 m-0">
         <br>
         <a class="topic-link" href="<%= topic_path(topic, url_path: topic.url_path) %>">
-            <% if topic.image.present? %>
+            <% if topic.image_url.present? %>
               <%= image_tag topic.image_url, width: '75%', class: 'img-responsive' %>
             <% end %>
             <p class="col-md-6"><%= topic.title %></p>

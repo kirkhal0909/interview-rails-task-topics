@@ -5,7 +5,7 @@
 
     <br>
     <h1>
-      <% if @topic.image.present? %>
+      <% if @topic.image_url.present? %>
         <%= image_tag @topic.image_url %>
       <% end %>
       <p><%= @topic&.title %></p>
